@@ -2,11 +2,7 @@ import React from 'react';
 import { CodeEditor } from '../widgets/codeEditor';
 
 const App = () => {
-  return (
-    <div className="editor">
-      <CodeEditor />
-    </div>
-  );
+  return <CodeEditor />;
 };
 
 export default App;

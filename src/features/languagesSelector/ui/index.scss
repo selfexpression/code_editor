@@ -1,13 +1,15 @@
 .languages-selector {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
+
+  margin: 50px 0px 10px 10px;
 }
 
 .dropdown {
   &__absolute {
     position: absolute;
-    top: 45px;
-    left: 0;
+    top: 95px;
+    left: 5px;
     z-index: 1;
   }
 

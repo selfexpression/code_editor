@@ -1,5 +1,7 @@
-import { useState, type FC } from 'react';
+import { useState, useRef, type FC } from 'react';
+import { useClickOutside } from '../../../shared/lib/hooks/useClickOutside';
 import { DropDownList } from '../../../shared/ui/dropDownList';
+import { Button } from '../../../shared/ui/button';
 import { LANGUAGES } from '../../../shared/constants/languages';
 
 import './index.scss';
@@ -9,40 +11,58 @@ interface LanguagesSelectorProps {
   onSelect: (language: string) => void;
 }
 
+const languages = Object.entries(LANGUAGES);
+
 export const LanguagesSelector: FC<LanguagesSelectorProps> = ({
   currentLanguage,
   onSelect,
 }) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [isOpenDropdownList, setIsOpenDropdownList] = useState(false);
 
   const handleOpenDropDownList = () => {
-    setIsOpenDropdownList(!isOpenDropdownList);
+    setIsOpenDropdownList((prev) => !prev);
   };
 
   const handleSelectLanguage = (language: string) => {
     onSelect(language);
-    handleOpenDropDownList();
+    setIsOpenDropdownList(false);
   };
 
-  const dropdownContentItems = LANGUAGES.map((language) => (
+  /*
+    Обработка клика по области экрана
+  */
+
+  useClickOutside(containerRef, () => setIsOpenDropdownList(false));
+
+  /*
+    Ключ в нижнем регистре для компонента CodeEditor
+    Значение в pascal case для отображения в интерфейсе
+  */
+
+  const dropdownContentItems = languages.map(([lowerCase, pascalCase]) => (
     <div
       className="dropdown__item"
-      key={language}
-      onClick={() => handleSelectLanguage(language)}
+      key={pascalCase}
+      onClick={() => handleSelectLanguage(lowerCase)}
       role="button"
       tabIndex={0}
     >
-      {currentLanguage === language ? (
+      {currentLanguage === lowerCase ? (
         <img src="/icons/check-mark.svg" alt="check-mark" />
       ) : (
         <div className="placeholder" />
       )}
-      {language}
+      {pascalCase}
     </div>
   ));
 
   return (
-    <div className="languages-selector">
+    <div className="languages-selector" ref={containerRef}>
+      <Button
+        onClick={handleOpenDropDownList}
+        text={LANGUAGES[currentLanguage]}
+      />
       <DropDownList
         content={dropdownContentItems}
         isOpen={isOpenDropdownList}

@@ -2,13 +2,12 @@ import { useState } from 'react';
 import Editor from '@monaco-editor/react';
 import { editor as MonacoEditor } from 'monaco-editor';
 import { LanguagesSelector } from '../../../features/languagesSelector';
-import { LANGUAGES } from '../../../shared/constants/languages';
 
 import './index.scss';
 
 export const CodeEditor = () => {
   const [value, setValue] = useState<string>('');
-  const [currentLanguage, setCurrentLanguage] = useState(LANGUAGES[0]);
+  const [currentLanguage, setCurrentLanguage] = useState('javascript');
 
   const handleSelectLanguage = (language: string) => {
     setCurrentLanguage(language);
@@ -25,19 +24,21 @@ export const CodeEditor = () => {
   };
 
   return (
-    <div className="editor-wrapper">
+    <div className="editor">
       <LanguagesSelector
         currentLanguage={currentLanguage}
         onSelect={handleSelectLanguage}
       />
-      <Editor
-        height="75vh"
-        theme="vs-dark"
-        defaultLanguage="javascript"
-        value={value}
-        onChange={onChange}
-        onMount={onMount}
-      />
+      <div className="editor-wrapper">
+        <Editor
+          height="75vh"
+          theme="vs-dark"
+          language={currentLanguage}
+          value={value}
+          onChange={onChange}
+          onMount={onMount}
+        />
+      </div>
     </div>
   );
 };
