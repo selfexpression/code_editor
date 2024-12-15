@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App';
+import App from './app/App';
 import './global.css';
 
 const container = document.querySelector('#root') as HTMLElement;

@@ -1,0 +1,9 @@
+.editor-wrapper {
+  border: 1px solid gray;
+}
+
+.editor-wrapper,
+.overflow-guard,
+.monaco-editor {
+  border-radius: 5px;
+}
