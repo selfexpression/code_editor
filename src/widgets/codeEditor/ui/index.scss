@@ -1,5 +1,19 @@
 .editor {
   border: 1px solid #636363;
+  background-color: #1f1f1f;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background-color: #3a3a3a;
+    color: #e8e8e8;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    padding: 10px 0px 10px 20px;
+  }
 
   &__header-panel {
     border-bottom: 1px solid #636363;

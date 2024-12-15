@@ -25,6 +25,10 @@ export const CodeEditor = () => {
 
   return (
     <div className="editor">
+      <div className="editor__header">
+        <img src="/icons/code.svg" alt="code" />
+        <span>Code</span>
+      </div>
       <div className="editor__header-panel">
         <LanguagesSelector
           currentLanguage={currentLanguage}
