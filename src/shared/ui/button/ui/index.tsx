@@ -5,18 +5,33 @@ import './index.scss';
 
 interface ButtonProps {
   onClick: () => void;
+  isClicked?: boolean;
   className?: string;
   text?: string;
+  withChevron?: boolean;
 }
 
-export const Button: FC<ButtonProps> = ({ className, text, onClick }) => {
+export const Button: FC<ButtonProps> = ({
+  className,
+  text,
+  onClick,
+  isClicked,
+  withChevron,
+}) => {
   return (
     <button
-      type='button'
-      className={clsx('button', className)}
+      type="button"
+      className={clsx('button', className, { button__clicked: isClicked })}
       onClick={onClick}
     >
-      {text}
+      <span>{text}</span>
+      {withChevron && (
+        <img
+          src="/icons/chevron-down.svg"
+          alt="chevron"
+          className="chevron-icon"
+        />
+      )}
     </button>
   );
 };

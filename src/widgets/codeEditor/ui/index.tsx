@@ -25,20 +25,20 @@ export const CodeEditor = () => {
 
   return (
     <div className="editor">
-      <LanguagesSelector
-        currentLanguage={currentLanguage}
-        onSelect={handleSelectLanguage}
-      />
-      <div className="editor-wrapper">
-        <Editor
-          height="75vh"
-          theme="vs-dark"
-          language={currentLanguage}
-          value={value}
-          onChange={onChange}
-          onMount={onMount}
+      <div className="editor__header-panel">
+        <LanguagesSelector
+          currentLanguage={currentLanguage}
+          onSelect={handleSelectLanguage}
         />
       </div>
+      <Editor
+        height="75vh"
+        theme="vs-dark"
+        language={currentLanguage}
+        value={value}
+        onChange={onChange}
+        onMount={onMount}
+      />
     </div>
   );
 };

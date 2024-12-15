@@ -1,9 +1,22 @@
-.editor-wrapper {
-  border: 1px solid gray;
+.editor {
+  border: 1px solid #636363;
+
+  &__header-panel {
+    border-bottom: 1px solid #636363;
+    padding: 5px;
+  }
 }
 
-.editor-wrapper,
+.editor,
 .overflow-guard,
 .monaco-editor {
   border-radius: 5px;
+}
+
+.overflow-guard {
+  padding-top: 15px;
+}
+
+.margin-view-overlays {
+  margin-top: 15px;
 }

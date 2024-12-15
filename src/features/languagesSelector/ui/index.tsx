@@ -62,6 +62,8 @@ export const LanguagesSelector: FC<LanguagesSelectorProps> = ({
       <Button
         onClick={handleOpenDropDownList}
         text={LANGUAGES[currentLanguage]}
+        withChevron={true}
+        isClicked={isOpenDropdownList}
       />
       <DropDownList
         content={dropdownContentItems}
