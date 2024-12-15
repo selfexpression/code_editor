@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Editor from '@monaco-editor/react';
 import { editor as MonacoEditor } from 'monaco-editor';
 import { LanguagesSelector } from '../../../features/languagesSelector';
+import { Dashboard } from '../../../shared/ui/dashboard';
 
 import './index.scss';
 
@@ -23,13 +24,11 @@ export const CodeEditor = () => {
     editor.focus();
   };
 
+  const codeIcon = <img src="/icons/code.svg" alt="code" />;
+
   return (
-    <div className="editor">
-      <div className="editor__header">
-        <img src="/icons/code.svg" alt="code" />
-        <span>Code</span>
-      </div>
-      <div className="editor__header-panel">
+    <Dashboard icon={codeIcon} title="Code">
+      <div className="dashboard__header-panel">
         <LanguagesSelector
           currentLanguage={currentLanguage}
           onSelect={handleSelectLanguage}
@@ -43,6 +42,6 @@ export const CodeEditor = () => {
         onChange={onChange}
         onMount={onMount}
       />
-    </div>
+    </Dashboard>
   );
 };
