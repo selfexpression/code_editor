@@ -6,14 +6,14 @@
   display: flex;
   flex-direction: column;
 
-  color: #fff;
+  color: var(--white);
 
   &__highlight {
     width: max-content;
-    border: 1px solid #636363;
+    border: 1px solid var(--gray-secondary);
     border-radius: 5px;
     padding: 2px 5px;
-    background-color: #3a3a3a;
+    background-color: var(--dark-gray-secondary);
   }
 
   &__task__example {
@@ -31,7 +31,7 @@
       left: 0;
       top: 0;
       bottom: 0;
-      background-color: #6c6c6c;
+      background-color: var(--gray-secondary);
 
       content: '';
     }
@@ -42,7 +42,7 @@
   }
 
   &__example-content {
-    color: #878585;
+    color: var(--gray-primary);
   }
 
   &__constraints {

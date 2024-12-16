@@ -18,12 +18,12 @@
 
     padding: 10px 35px 10px 23px;
 
-    color: #e8e8e8;
+    color: var(--light);
     border-radius: 5px;
     cursor: pointer;
 
     &:hover {
-      background-color: #3f3f3f;
+      background-color: var(--dark-gray);
     }
 
     .placeholder {
