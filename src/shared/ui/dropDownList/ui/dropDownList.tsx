@@ -1,7 +1,7 @@
 import { FC, JSX } from 'react';
 import clsx from 'clsx';
 
-import './index.scss';
+import './dropDownList.scss';
 
 interface DropDownListProps {
   content?: JSX.Element | JSX.Element[];

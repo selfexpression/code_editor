@@ -5,7 +5,7 @@ import { hasNumber } from '../lib/hasNumber';
 import { TWO_NUMBER_HIGHLIGHT_WORDS } from '../../../shared/constants/tasks/twoNumber';
 import clsx from 'clsx';
 
-import './index.scss';
+import './taskDescription.scss';
 
 interface ITaskExample {
   input: string;

@@ -1,1 +1,1 @@
-export { CodeEditor } from './ui';
+export { CodeEditor } from './ui/codeEditor';

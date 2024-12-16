@@ -4,7 +4,7 @@ import { editor as MonacoEditor } from 'monaco-editor';
 import { LanguagesSelector } from '../../../features/languagesSelector';
 import { Dashboard } from '../../../shared/ui/dashboard';
 
-import './index.scss';
+import './codeEditor.scss';
 
 export const CodeEditor = () => {
   const [value, setValue] = useState<string>('');

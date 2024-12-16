@@ -1,1 +1,1 @@
-export { LanguagesSelector } from './ui';
+export { LanguagesSelector } from './ui/languagesSelector';

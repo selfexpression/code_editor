@@ -1,7 +1,7 @@
 import { type JSX, type FC } from 'react';
 import { clsx } from 'clsx';
 
-import './index.scss';
+import './dashboard.scss';
 
 interface DashboardProps {
   icon: JSX.Element;

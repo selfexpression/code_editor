@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import clsx from 'clsx';
 
-import './index.scss';
+import './button.scss';
 
 interface ButtonProps {
   onClick: () => void;

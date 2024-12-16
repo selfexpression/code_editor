@@ -1,1 +1,1 @@
-export { TaskDescription } from './ui';
+export { TaskDescription } from './ui/taskDescription';

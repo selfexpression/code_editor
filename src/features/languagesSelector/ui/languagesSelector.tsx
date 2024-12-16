@@ -4,7 +4,7 @@ import { DropDownList } from '../../../shared/ui/dropDownList';
 import { Button } from '../../../shared/ui/button';
 import { LANGUAGES } from '../../../shared/constants/languages';
 
-import './index.scss';
+import './languagesSelector.scss';
 
 interface LanguagesSelectorProps {
   currentLanguage: string;
