@@ -4,7 +4,7 @@ import ChevronDownIcon from '../../../../shared/assets/icons/chevron-down.svg';
 
 import './button.scss';
 
-interface ButtonProps {
+interface IButton {
   onClick: () => void;
   isClicked?: boolean;
   className?: string;
@@ -12,7 +12,7 @@ interface ButtonProps {
   withChevron?: boolean;
 }
 
-export const Button: FC<ButtonProps> = ({
+export const Button: FC<IButton> = ({
   className,
   text,
   onClick,

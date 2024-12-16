@@ -7,14 +7,14 @@ import { LANGUAGES } from '../../../shared/constants/languages';
 
 import './languagesSelector.scss';
 
-interface LanguagesSelectorProps {
+interface ILanguagesSelector {
   currentLanguage: string;
   onSelect: (language: string) => void;
 }
 
 const languages = Object.entries(LANGUAGES);
 
-export const LanguagesSelector: FC<LanguagesSelectorProps> = ({
+export const LanguagesSelector: FC<ILanguagesSelector> = ({
   currentLanguage,
   onSelect,
 }) => {

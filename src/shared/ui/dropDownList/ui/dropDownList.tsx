@@ -3,13 +3,13 @@ import clsx from 'clsx';
 
 import './dropDownList.scss';
 
-interface DropDownListProps {
+interface IDropDownList {
   content?: JSX.Element | JSX.Element[];
   className?: string;
   isOpen?: boolean;
 }
 
-export const DropDownList: FC<DropDownListProps> = ({
+export const DropDownList: FC<IDropDownList> = ({
   content,
   className,
   isOpen,
