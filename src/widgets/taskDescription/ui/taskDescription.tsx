@@ -36,7 +36,7 @@ export const TaskDescription: FC<ITaskDescription> = ({
 
         <div className="task__description">
           {description.map((text) => (
-            <p className="task__paragraph">
+            <p key={text} className="task__paragraph">
               {/* Добавляется класс 'task__highlight' ключевым словам */}
               {highlightText(text, TWO_NUMBER_HIGHLIGHT_WORDS)}
             </p>
@@ -44,7 +44,7 @@ export const TaskDescription: FC<ITaskDescription> = ({
         </div>
 
         {examples.map(({ input, output, explanation }, index) => (
-          <div className="task__example">
+          <div key={input} className="task__example">
             <h4>Example {index + 1}:</h4>
             <div className="task__example-details">
               <p className="task__example-row">
@@ -69,7 +69,10 @@ export const TaskDescription: FC<ITaskDescription> = ({
           <h4>Constraints:</h4>
           <ul className="task__constraints-list">
             {constraints.map((text) => (
-              <li className={clsx({ task__highlight: hasNumber(text) })}>
+              <li
+                key={text}
+                className={clsx({ task__highlight: hasNumber(text) })}
+              >
                 {/* Добавляется класс 'task__highlight' элементам содержащим числа */}
                 {text}
               </li>
