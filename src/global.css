@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./shared/assets/fonts/Montserrat-Variable.ttf') format('truetype');
+}
+
 * {
   box-sizing: border-box;
 }
@@ -5,6 +10,8 @@
 body {
   margin: 0;
   padding: 0;
+
+  font-family: 'Montserrat';
 }
 
 body,

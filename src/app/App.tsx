@@ -1,8 +1,7 @@
-import React from 'react';
-import { CodeEditor } from '../widgets/codeEditor';
+import { Layout } from './layout';
 
 const App = () => {
-  return <CodeEditor />;
+  return <Layout />;
 };
 
 export default App;

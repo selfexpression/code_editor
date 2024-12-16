@@ -1,0 +1,63 @@
+.task-dashboard {
+  height: 100vh;
+}
+
+.task {
+  display: flex;
+  flex-direction: column;
+
+  color: #fff;
+
+  &__highlight {
+    width: max-content;
+    border: 1px solid #636363;
+    border-radius: 5px;
+    padding: 2px 5px;
+    background-color: #3a3a3a;
+  }
+
+  &__task__example {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__example-details {
+    position: relative;
+    padding: 5px 15px;
+
+    &::before {
+      position: absolute;
+      width: 2px;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background-color: #6c6c6c;
+
+      content: '';
+    }
+  }
+
+  &__example-row {
+    margin: 2px;
+  }
+
+  &__example-content {
+    color: #878585;
+  }
+
+  &__constraints {
+    margin-top: 30px;
+  }
+
+  &__constraints-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__paragraph,
+  &__example-row,
+  &__constraints {
+    font-size: 14px;
+  }
+}
