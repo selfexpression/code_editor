@@ -12,8 +12,9 @@
     width: max-content;
     border: 1px solid var(--gray-secondary);
     border-radius: 5px;
-    padding: 2px 5px;
+    padding: 0px 3px;
     background-color: var(--dark-gray-secondary);
+    color: var(--light);
   }
 
   &__task__example {
