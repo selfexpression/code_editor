@@ -2,6 +2,7 @@ import { type FC } from 'react';
 import { Dashboard } from '../../../shared/ui/dashboard';
 import { highlightText } from '../lib/highlightText';
 import { hasNumber } from '../lib/hasNumber';
+import TextIcon from '../../../shared/assets/icons/text.svg';
 import { TWO_NUMBER_HIGHLIGHT_WORDS } from '../../../shared/constants/tasks/twoNumber';
 import clsx from 'clsx';
 
@@ -26,7 +27,7 @@ export const TaskDescription: FC<ITaskDescription> = ({
   examples,
   constraints,
 }) => {
-  const textIcon = <img src="/icons/text.svg" alt="text" />;
+  const textIcon = <img src={TextIcon} alt="text" />;
 
   return (
     <Dashboard icon={textIcon} title="Description" className="task-dashboard">

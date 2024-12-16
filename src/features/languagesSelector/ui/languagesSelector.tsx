@@ -1,5 +1,6 @@
 import { useState, useRef, type FC } from 'react';
 import { useClickOutside } from '../../../shared/lib/hooks/useClickOutside';
+import CheckMarkIcon from '../../../shared/assets/icons/check-mark.svg';
 import { DropDownList } from '../../../shared/ui/dropDownList';
 import { Button } from '../../../shared/ui/button';
 import { LANGUAGES } from '../../../shared/constants/languages';
@@ -49,7 +50,7 @@ export const LanguagesSelector: FC<LanguagesSelectorProps> = ({
       tabIndex={0}
     >
       {currentLanguage === lowerCase ? (
-        <img src="/icons/check-mark.svg" alt="check-mark" />
+        <img src={CheckMarkIcon} alt="check-mark" />
       ) : (
         <div className="placeholder" />
       )}

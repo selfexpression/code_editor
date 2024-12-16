@@ -3,6 +3,7 @@ import Editor from '@monaco-editor/react';
 import { editor as MonacoEditor } from 'monaco-editor';
 import { LanguagesSelector } from '../../../features/languagesSelector';
 import { Dashboard } from '../../../shared/ui/dashboard';
+import CodeIcon from '../../../shared/assets/icons/code.svg';
 
 import './codeEditor.scss';
 
@@ -24,7 +25,7 @@ export const CodeEditor = () => {
     editor.focus();
   };
 
-  const codeIcon = <img src="/icons/code.svg" alt="code" />;
+  const codeIcon = <img src={CodeIcon} alt="code" />;
 
   return (
     <Dashboard icon={codeIcon} title="Code">

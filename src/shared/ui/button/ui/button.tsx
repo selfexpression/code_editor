@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import clsx from 'clsx';
+import ChevronDownIcon from '../../../../shared/assets/icons/chevron-down.svg';
 
 import './button.scss';
 
@@ -26,11 +27,7 @@ export const Button: FC<ButtonProps> = ({
     >
       <span>{text}</span>
       {withChevron && (
-        <img
-          src="/icons/chevron-down.svg"
-          alt="chevron"
-          className="chevron-icon"
-        />
+        <img src={ChevronDownIcon} alt="chevron" className="chevron-icon" />
       )}
     </button>
   );
