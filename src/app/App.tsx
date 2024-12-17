@@ -1,7 +1,7 @@
-import { Layout } from './layout';
+import { CodePage } from '../pages/codePage';
 
 const App = () => {
-  return <Layout />;
+  return <CodePage />;
 };
 
 export default App;

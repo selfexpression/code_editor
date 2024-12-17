@@ -1,4 +1,4 @@
-import { useState, type FC } from 'react';
+import { useRef, useState, type FC } from 'react';
 import Editor from '@monaco-editor/react';
 import { editor as MonacoEditor } from 'monaco-editor';
 import { LanguagesSelector } from '../../../features/languagesSelector';
@@ -16,12 +16,14 @@ interface ICodeEditor {
 }
 
 export const CodeEditor: FC<ICodeEditor> = ({ className }) => {
-  const [value, setValue] = useState<string>('');
+  const editorRef = useRef<MonacoEditor.IStandaloneCodeEditor>(null);
+  const [value, setValue] = useState<string>(CODE_SNIPPETS[DEFAULT_LANGUAGE]);
   const [language, setLanguage] = useState<TLanguages>(DEFAULT_LANGUAGE);
 
   const handleSelectLanguage = (language: TLanguages) => {
     setLanguage(language);
     setValue(CODE_SNIPPETS[language]);
+    editorRef.current?.focus();
   };
 
   const onChange = (value: string | undefined) => {
@@ -31,6 +33,7 @@ export const CodeEditor: FC<ICodeEditor> = ({ className }) => {
   };
 
   const onMount = (editor: MonacoEditor.IStandaloneCodeEditor) => {
+    editorRef.current = editor;
     editor.focus();
   };
 
@@ -39,7 +42,10 @@ export const CodeEditor: FC<ICodeEditor> = ({ className }) => {
   return (
     <Dashboard icon={codeIcon} title="Code" className={className}>
       <div className="dashboard__header-panel">
-        <LanguagesSelector language={language} onSelect={handleSelectLanguage} />
+        <LanguagesSelector
+          language={language}
+          onSelect={handleSelectLanguage}
+        />
         <RunCode language={language} code={value} />
       </div>
       {/* Вычитаются размеры блоков dashboard__header и dashboard__header-panel + border */}
