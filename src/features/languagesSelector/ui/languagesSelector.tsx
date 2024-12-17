@@ -52,7 +52,7 @@ export const LanguagesSelector: FC<ILanguagesSelector> = ({
       {currentLanguage === lowerCase ? (
         <img src={CheckMarkIcon} alt="check-mark" />
       ) : (
-        <div className="placeholder" />
+        <div className="dropdown__placeholder" />
       )}
       {pascalCase}
     </div>
@@ -69,7 +69,6 @@ export const LanguagesSelector: FC<ILanguagesSelector> = ({
       <DropDownList
         content={dropdownContentItems}
         isOpen={isOpenDropdownList}
-        className="dropdown__absolute"
       />
     </div>
   );
