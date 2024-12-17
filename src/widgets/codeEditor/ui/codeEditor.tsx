@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type FC } from 'react';
 import Editor from '@monaco-editor/react';
 import { editor as MonacoEditor } from 'monaco-editor';
 import { LanguagesSelector } from '../../../features/languagesSelector';
@@ -7,7 +7,11 @@ import CodeIcon from '../../../shared/assets/icons/code.svg';
 
 import './codeEditor.scss';
 
-export const CodeEditor = () => {
+interface ICodeEditor {
+  className?: string;
+}
+
+export const CodeEditor: FC<ICodeEditor> = ({ className }) => {
   const [value, setValue] = useState<string>('');
   const [currentLanguage, setCurrentLanguage] = useState('javascript');
 
@@ -28,15 +32,16 @@ export const CodeEditor = () => {
   const codeIcon = <img src={CodeIcon} alt="code" />;
 
   return (
-    <Dashboard icon={codeIcon} title="Code">
+    <Dashboard icon={codeIcon} title="Code" className={className}>
       <div className="dashboard__header-panel">
         <LanguagesSelector
           currentLanguage={currentLanguage}
           onSelect={handleSelectLanguage}
         />
       </div>
+      {/* Вычитаются размеры блоков dashboard__header и dashboard__header-panel + border */}
       <Editor
-        height="75vh"
+        height="calc(50vh - (39.5px + 46px + 1px))"
         theme="vs-dark"
         language={currentLanguage}
         value={value}
