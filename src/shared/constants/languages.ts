@@ -3,7 +3,9 @@
   Значение: название языка для интерфейса
 */
 
-export const LANGUAGES: Record<string, string> = {
+export const LANGUAGES = {
   javascript: 'JavaScript',
   typescript: 'TypeScript',
 };
+
+export const DEFAULT_LANGUAGE = 'javascript';

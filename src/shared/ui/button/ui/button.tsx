@@ -1,6 +1,5 @@
-import { FC } from 'react';
+import type { FC, JSX } from 'react';
 import clsx from 'clsx';
-import ChevronDownIcon from '../../../../shared/assets/icons/chevron-down.svg';
 
 import './button.scss';
 
@@ -9,7 +8,7 @@ interface IButton {
   isClicked?: boolean;
   className?: string;
   text?: string;
-  withChevron?: boolean;
+  icon?: JSX.Element;
 }
 
 export const Button: FC<IButton> = ({
@@ -17,7 +16,7 @@ export const Button: FC<IButton> = ({
   text,
   onClick,
   isClicked,
-  withChevron,
+  icon,
 }) => {
   return (
     <button
@@ -26,9 +25,7 @@ export const Button: FC<IButton> = ({
       onClick={onClick}
     >
       <span>{text}</span>
-      {withChevron && (
-        <img src={ChevronDownIcon} alt="chevron" className="chevron-icon" />
-      )}
+      {icon && icon}
     </button>
   );
 };

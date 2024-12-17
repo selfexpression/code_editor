@@ -1,0 +1,22 @@
+export const CODE_SNIPPETS = {
+  javascript: `const twoSum = (nums, target) => {
+    for (let i = 0; i < nums.length; i += 1) {
+        for (let j = i + 1; j < nums.length; j += 1) {
+            if (nums[i] + nums[j] === target) {
+                return [i, j];
+            }
+        }
+    }
+};
+  `,
+  typescript: `const twoSum = (nums: number[], target: number): number[] => {
+    for (let i = 0; i < nums.length; i += 1) {
+        for (let j = i + 1; j < nums.length; j += 1) {
+            if (nums[i] + nums[j] === target) {
+                return [i, j];
+            }
+        }
+    }
+};
+  `,
+};

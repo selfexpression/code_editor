@@ -4,20 +4,19 @@ import CheckMarkIcon from '../../../shared/assets/icons/check-mark.svg';
 import { DropDownList } from '../../../shared/ui/dropDownList';
 import { Button } from '../../../shared/ui/button';
 import { LANGUAGES } from '../../../shared/constants/languages';
+import type { TLanguages } from '../../../shared/types/languages';
+import ChevronDownIcon from '../../../shared/assets/icons/chevron-down.svg';
 
 import './languagesSelector.scss';
 
 interface ILanguagesSelector {
-  currentLanguage: string;
-  onSelect: (language: string) => void;
+  language: TLanguages;
+  onSelect: (language: TLanguages) => void;
 }
 
-const languages = Object.entries(LANGUAGES);
+const languages = Object.entries(LANGUAGES) as [TLanguages, string][];
 
-export const LanguagesSelector: FC<ILanguagesSelector> = ({
-  currentLanguage,
-  onSelect,
-}) => {
+export const LanguagesSelector: FC<ILanguagesSelector> = ({ language, onSelect }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [isOpenDropdownList, setIsOpenDropdownList] = useState(false);
 
@@ -25,7 +24,7 @@ export const LanguagesSelector: FC<ILanguagesSelector> = ({
     setIsOpenDropdownList((prev) => !prev);
   };
 
-  const handleSelectLanguage = (language: string) => {
+  const handleSelectLanguage = (language: TLanguages) => {
     onSelect(language);
     setIsOpenDropdownList(false);
   };
@@ -49,7 +48,7 @@ export const LanguagesSelector: FC<ILanguagesSelector> = ({
       role="button"
       tabIndex={0}
     >
-      {currentLanguage === lowerCase ? (
+      {language === lowerCase ? (
         <img src={CheckMarkIcon} alt="check-mark" />
       ) : (
         <div className="dropdown__placeholder" />
@@ -58,18 +57,19 @@ export const LanguagesSelector: FC<ILanguagesSelector> = ({
     </div>
   ));
 
+  const chevronDownIcon = (
+    <img src={ChevronDownIcon} alt="chevron" className="chevron-icon" />
+  );
+
   return (
     <div className="languages-selector" ref={containerRef}>
       <Button
         onClick={handleOpenDropDownList}
-        text={LANGUAGES[currentLanguage]}
-        withChevron={true}
+        text={LANGUAGES[language]}
+        icon={chevronDownIcon}
         isClicked={isOpenDropdownList}
       />
-      <DropDownList
-        content={dropdownContentItems}
-        isOpen={isOpenDropdownList}
-      />
+      <DropDownList content={dropdownContentItems} isOpen={isOpenDropdownList} />
     </div>
   );
 };
