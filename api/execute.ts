@@ -2,8 +2,8 @@
   Конфигурация Vercel API Routes для серверных запросов
  */
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { CODE_SNIPPETS } from '../shared/constants/codeSnippets';
-import type { TLanguages } from '../shared/types/languages';
+import { CODE_SNIPPETS } from '../src/shared/constants/codeSnippets';
+import type { TLanguages } from '../src/shared/types/languages';
 
 interface IRequestBody {
   language: TLanguages;
