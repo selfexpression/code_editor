@@ -11,6 +11,7 @@ interface IRequestBody {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  console.log('Received request:', req.method, req.body);
   if (req.method === 'POST') {
     try {
       const { language, code }: IRequestBody = req.body;
