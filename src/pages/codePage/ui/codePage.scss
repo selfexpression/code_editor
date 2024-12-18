@@ -22,15 +22,16 @@
   }
 
   @media (max-width: 1023px) {
-    flex-direction: column;
+    flex-wrap: wrap;
 
     &__task-description,
     &__tabset {
       width: 100%;
     }
 
-    &__tabset {
-      flex-direction: column-reverse;
+    &__code-editor,
+    &__output {
+      height: 100%;
     }
   }
 }
