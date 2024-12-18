@@ -2,4 +2,12 @@
   &__button {
     flex-direction: row-reverse;
   }
+
+  &__success {
+    border: 1px solid var(--green);
+  }
+
+  &__error {
+    border: 1px solid var(--red);
+  }
 }

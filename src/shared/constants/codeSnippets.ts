@@ -8,6 +8,11 @@ export const CODE_SNIPPETS = {
         }
     }
 };
+
+const nums = [2,7,11,15];
+const target = 9;
+const result = twoSum(nums, target);
+console.log(result);
   `,
   typescript: `const twoSum = (nums: number[], target: number): number[] => {
     for (let i = 0; i < nums.length; i += 1) {
@@ -18,5 +23,10 @@ export const CODE_SNIPPETS = {
         }
     }
 };
+
+const nums: number[] = [2,7,11,15];
+const target: number = 9;
+const result: number[] = twoSum(nums, target);
+console.log(result);
   `,
 };

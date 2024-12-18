@@ -1,0 +1,19 @@
+.output {
+  &__title-success {
+    color: var(--green);
+  }
+
+  &__result-error {
+    color: var(--red);
+  }
+
+  &__empty {
+    color: var(--gray-primary);
+  }
+
+  &__highlight {
+    padding: 10px;
+    background-color: var(--dark-gray-secondary);
+    border-radius: 5px;
+  }
+}

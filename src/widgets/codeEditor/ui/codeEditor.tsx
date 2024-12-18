@@ -8,14 +8,16 @@ import CodeIcon from '../../../shared/assets/icons/code.svg';
 import { CODE_SNIPPETS } from '../../../shared/constants/codeSnippets';
 import { DEFAULT_LANGUAGE } from '../../../shared/constants/languages';
 import type { TLanguages } from '../../../shared/types/languages';
+import type { IOutputResult } from '../../../shared/types/output';
 
 import './codeEditor.scss';
 
 interface ICodeEditor {
+  onResult: (result: IOutputResult) => void;
   className?: string;
 }
 
-export const CodeEditor: FC<ICodeEditor> = ({ className }) => {
+export const CodeEditor: FC<ICodeEditor> = ({ className, onResult }) => {
   const editorRef = useRef<MonacoEditor.IStandaloneCodeEditor>(null);
   const [value, setValue] = useState<string>(CODE_SNIPPETS[DEFAULT_LANGUAGE]);
   const [language, setLanguage] = useState<TLanguages>(DEFAULT_LANGUAGE);
@@ -46,7 +48,7 @@ export const CodeEditor: FC<ICodeEditor> = ({ className }) => {
           language={language}
           onSelect={handleSelectLanguage}
         />
-        <RunCode language={language} code={value} />
+        <RunCode language={language} code={value} onResult={onResult} />
       </div>
       {/* Вычитаются размеры блоков dashboard__header и dashboard__header-panel + border */}
       <Editor
