@@ -39,10 +39,12 @@ export const CodeEditor: FC<ICodeEditor> = ({ className, onResult }) => {
     editor.focus();
   };
 
-  const codeIcon = <img src={CodeIcon} alt="code" />;
-
   return (
-    <Dashboard icon={codeIcon} title="Code" className={className}>
+    <Dashboard
+      icon={<img src={CodeIcon} alt="code" />}
+      title="Code"
+      className={className}
+    >
       <div className="dashboard__header-panel">
         <LanguagesSelector
           language={language}

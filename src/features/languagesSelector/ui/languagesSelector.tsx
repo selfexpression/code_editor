@@ -16,7 +16,10 @@ interface ILanguagesSelector {
 
 const languages = Object.entries(LANGUAGES) as [TLanguages, string][];
 
-export const LanguagesSelector: FC<ILanguagesSelector> = ({ language, onSelect }) => {
+export const LanguagesSelector: FC<ILanguagesSelector> = ({
+  language,
+  onSelect,
+}) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [isOpenDropdownList, setIsOpenDropdownList] = useState(false);
 
@@ -57,19 +60,20 @@ export const LanguagesSelector: FC<ILanguagesSelector> = ({ language, onSelect }
     </div>
   ));
 
-  const chevronDownIcon = (
-    <img src={ChevronDownIcon} alt="chevron" className="chevron-icon" />
-  );
-
   return (
     <div className="languages-selector" ref={containerRef}>
       <Button
         onClick={handleOpenDropDownList}
         text={LANGUAGES[language]}
-        icon={chevronDownIcon}
+        icon={
+          <img src={ChevronDownIcon} alt="chevron" className="chevron-icon" />
+        }
         isClicked={isOpenDropdownList}
       />
-      <DropDownList content={dropdownContentItems} isOpen={isOpenDropdownList} />
+      <DropDownList
+        content={dropdownContentItems}
+        isOpen={isOpenDropdownList}
+      />
     </div>
   );
 };

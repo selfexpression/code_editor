@@ -1,7 +1,6 @@
 import { type FC } from 'react';
 import { Dashboard } from '../../../shared/ui/dashboard';
 import TerminalIcon from '../../../shared/assets/icons/terminal.svg';
-import clsx from 'clsx';
 import type { IOutputResult } from '../../../shared/types/output';
 
 import './output.scss';
@@ -27,11 +26,6 @@ export const Output: FC<IOutput> = ({ className, result }) => {
               <>
                 <h2 className="output__title-success">Accepted</h2>
                 <div className="output__highlight">
-                  <div
-                    className={clsx('check-mark', {
-                      'check-mark__success': isSuccessCode,
-                    })}
-                  />
                   <span>Case</span>
                 </div>
                 <h5>Result:</h5>

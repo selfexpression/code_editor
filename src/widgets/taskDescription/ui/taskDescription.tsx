@@ -29,10 +29,12 @@ export const TaskDescription: FC<ITaskDescription> = ({
   constraints,
   className,
 }) => {
-  const textIcon = <img src={TextIcon} alt="text" />;
-
   return (
-    <Dashboard icon={textIcon} title="Description" className={className}>
+    <Dashboard
+      icon={<img src={TextIcon} alt="text" />}
+      title="Description"
+      className={className}
+    >
       <div className="task dashboard__content">
         <h2>{title}</h2>
 
