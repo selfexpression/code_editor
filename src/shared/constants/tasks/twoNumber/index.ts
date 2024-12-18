@@ -23,3 +23,8 @@ export const TWO_NUMBER = {
 };
 
 export const TWO_NUMBER_HIGHLIGHT_WORDS = ['nums', 'target'];
+
+export const TWO_NUMBER_OUTPUT = {
+  success: '[0,1]',
+  error: 'SyntaxError: Unexpected token',
+};

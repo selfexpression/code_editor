@@ -1,5 +1,8 @@
+import { mockFetch } from './mocks/mockFetch';
+import { apiEndPoints } from './endPoints';
+
 export const runCode = async (language: string, code: string) => {
-  const response = await fetch('/api/execute/', {
+  const response = await mockFetch(apiEndPoints.execute, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
