@@ -56,5 +56,9 @@
   &__example-row,
   &__constraints {
     font-size: 14px;
+
+    @media (max-width: 460px) {
+      font-size: 12px;
+    }
   }
 }

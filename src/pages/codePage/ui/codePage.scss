@@ -8,6 +8,10 @@
   &__tabset {
     height: 100%;
     width: 50%;
+
+    @media (max-width: 460px) {
+      height: max-content;
+    }
   }
 
   &__tabset {
