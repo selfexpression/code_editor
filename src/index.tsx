@@ -4,11 +4,11 @@ import App from './app/App';
 import './globals.scss';
 
 const enableMocking = async () => {
-  if (process.env.NODE_ENV === 'development') {
-    const { worker } = await import('./mocks/browser');
+  // if (process.env.NODE_ENV === 'development') {
+  const { worker } = await import('./mocks/browser');
 
-    return worker.start({ onUnhandledRequest: 'bypass' });
-  }
+  return worker.start({ onUnhandledRequest: 'bypass' });
+  // }
 };
 
 const container = document.querySelector('#root') as HTMLElement;
