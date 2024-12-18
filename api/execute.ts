@@ -12,6 +12,10 @@ interface IRequestBody {
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   console.log('Received request:', req.method, req.body);
+  if (req.method === 'GET') {
+    return res.status(200).json({ message: 'API is working!' });
+  }
+
   if (req.method === 'POST') {
     try {
       const { language, code }: IRequestBody = req.body;
