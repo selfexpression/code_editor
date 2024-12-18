@@ -1,4 +1,4 @@
-### Go to App-> [MOB Cut Studio App](https://mob-cut-studio.vercel.app/)
+### Go to App-> [Code Editor](https://code-editor-react-app-project.vercel.app/)
 
 ### Installation Guide:
 
