@@ -1,6 +1,5 @@
 .code-page {
   display: flex;
-  gap: 5px;
   width: 100%;
   height: 100%;
 
@@ -9,20 +8,17 @@
     height: 100%;
     width: 50%;
 
-    @media (max-width: 460px) {
-      height: max-content;
-    }
+    overflow-y: hidden;
   }
 
   &__tabset {
     display: flex;
     flex-direction: column;
-    gap: 5px;
   }
 
   &__code-editor,
   &__output {
-    height: 50%;
+    height: 100%;
   }
 
   @media (max-width: 1023px) {
@@ -31,11 +27,6 @@
     &__task-description,
     &__tabset {
       width: 100%;
-    }
-
-    &__code-editor,
-    &__output {
-      height: 100%;
     }
   }
 }

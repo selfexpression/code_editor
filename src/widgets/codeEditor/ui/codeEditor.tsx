@@ -15,9 +15,14 @@ import './codeEditor.scss';
 interface ICodeEditor {
   onResult: (result: IOutputResult) => void;
   className?: string;
+  height?: number;
 }
 
-export const CodeEditor: FC<ICodeEditor> = ({ className, onResult }) => {
+export const CodeEditor: FC<ICodeEditor> = ({
+  className,
+  onResult,
+  height,
+}) => {
   const editorRef = useRef<MonacoEditor.IStandaloneCodeEditor>(null);
   const [value, setValue] = useState<string>(CODE_SNIPPETS[DEFAULT_LANGUAGE]);
   const [language, setLanguage] = useState<TLanguages>(DEFAULT_LANGUAGE);
@@ -39,6 +44,11 @@ export const CodeEditor: FC<ICodeEditor> = ({ className, onResult }) => {
     editor.focus();
   };
 
+  const dashboardHeaderHeight = '39.5px';
+  const dashboardHeaderPanelHeight = '46px';
+  const borderWidth = '1px';
+  const editorHeight = height ? `${height}px` : '50vh';
+
   return (
     <Dashboard
       icon={<img src={CodeIcon} alt="code" />}
@@ -52,9 +62,9 @@ export const CodeEditor: FC<ICodeEditor> = ({ className, onResult }) => {
         />
         <RunCode language={language} code={value} onResult={onResult} />
       </div>
-      {/* Вычитаются размеры блоков dashboard__header и dashboard__header-panel + border */}
+      {/* От высоты редактора ыычитаются размеры блоков dashboard__header и dashboard__header-panel + border */}
       <Editor
-        height="calc(50vh - (39.5px + 46px + 1px))"
+        height={`calc(${editorHeight} - (${dashboardHeaderHeight} + ${dashboardHeaderPanelHeight} + ${borderWidth}))`}
         theme="vs-dark"
         language={language}
         defaultValue={CODE_SNIPPETS[language]}
