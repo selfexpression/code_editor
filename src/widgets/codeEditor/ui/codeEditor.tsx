@@ -7,6 +7,10 @@ import { RunCode } from '../../../features/runCode';
 import CodeIcon from '../../../shared/assets/icons/code.svg';
 import { CODE_SNIPPETS } from '../../../shared/constants/codeSnippets';
 import { DEFAULT_LANGUAGE } from '../../../shared/constants/languages';
+import {
+  DASHBOARD_BORDER_WIDTH,
+  DASHBOARD_HEADER_HEIGHT,
+} from '../../../shared/constants/dashboard';
 import type { TLanguages } from '../../../shared/types/languages';
 import type { IOutputResult } from '../../../shared/types/output';
 
@@ -44,9 +48,13 @@ export const CodeEditor: FC<ICodeEditor> = ({
     editor.focus();
   };
 
-  const dashboardHeaderHeight = '39.5px';
-  const dashboardHeaderPanelHeight = '46px';
-  const borderWidth = '1px';
+  const headerPanelContent = (
+    <>
+      <LanguagesSelector language={language} onSelect={handleSelectLanguage} />
+      <RunCode language={language} code={value} onResult={onResult} />
+    </>
+  );
+
   const editorHeight = height ? `${height}px` : '50vh';
 
   return (
@@ -54,17 +62,11 @@ export const CodeEditor: FC<ICodeEditor> = ({
       icon={<img src={CodeIcon} alt="code" />}
       title="Code"
       className={className}
+      headerPanelContent={headerPanelContent}
     >
-      <div className="dashboard__header-panel">
-        <LanguagesSelector
-          language={language}
-          onSelect={handleSelectLanguage}
-        />
-        <RunCode language={language} code={value} onResult={onResult} />
-      </div>
       {/* От высоты редактора ыычитаются размеры блоков dashboard__header и dashboard__header-panel + border */}
       <Editor
-        height={`calc(${editorHeight} - (${dashboardHeaderHeight} + ${dashboardHeaderPanelHeight} + ${borderWidth}))`}
+        height={`calc(${editorHeight} - (${DASHBOARD_HEADER_HEIGHT} + ${DASHBOARD_HEADER_HEIGHT} + ${DASHBOARD_BORDER_WIDTH}))`}
         theme="vs-dark"
         language={language}
         defaultValue={CODE_SNIPPETS[language]}
