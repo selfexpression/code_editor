@@ -1,19 +1,44 @@
 .dashboard {
+  position: relative;
   height: 100%;
   border: 1px solid var(--gray-secondary);
   background-color: var(--dark-primary);
   color: var(--light);
 
   &__header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     align-items: center;
     gap: 8px;
 
-    padding: 10px 0px 10px 20px;
+    padding: 10px 0 10px 20px;
 
     background-color: var(--dark-gray-secondary);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+
+    &--hidden-content {
+      transform: rotate(90deg);
+    }
+
+    &:not(&--hidden-content) {
+      overflow: hidden;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 10px;
+
+        background-color: var(--dark-gray-secondary);
+        box-shadow: -5px 0px 5px 0px var(--dark-gray-secondary);
+        content: '';
+      }
+    }
   }
 
   &__header-panel {
@@ -29,6 +54,16 @@
   }
 
   &__content {
-    padding: 20px;
+    &--has-padding {
+      padding: 20px;
+    }
+
+    &--hidden-content {
+      min-width: 400px;
+    }
+  }
+
+  &--hidden-content {
+    background-color: var(--dark-gray-secondary);
   }
 }

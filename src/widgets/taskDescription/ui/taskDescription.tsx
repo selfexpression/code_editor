@@ -19,7 +19,7 @@ interface ITaskDescription {
   description: string[];
   examples: ITaskExample[];
   constraints: string[];
-  className?: string;
+  classNames?: string;
 }
 
 export const TaskDescription: FC<ITaskDescription> = ({
@@ -27,15 +27,10 @@ export const TaskDescription: FC<ITaskDescription> = ({
   description,
   examples,
   constraints,
-  className,
 }) => {
   return (
-    <Dashboard
-      icon={<img src={TextIcon} alt="text" />}
-      title="Description"
-      className={className}
-    >
-      <div className="task dashboard__content">
+    <Dashboard icon={<img src={TextIcon} alt="text" />} title="Description">
+      <div className="task">
         <h2>{title}</h2>
 
         <div className="task__description">

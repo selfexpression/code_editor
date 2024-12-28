@@ -7,19 +7,19 @@ import './output.scss';
 
 interface IOutput {
   result: IOutputResult | null;
-  className?: string;
+  classNames?: string;
 }
 
-export const Output: FC<IOutput> = ({ className, result }) => {
+export const Output: FC<IOutput> = ({ classNames, result }) => {
   const isSuccessCode = result?.status === 'success';
 
   return (
     <Dashboard
       icon={<img src={TerminalIcon} alt="terminal" />}
       title="Output"
-      className={className}
+      classNames={classNames}
     >
-      <div className="output dashboard__content">
+      <div className="output">
         {result ? (
           <>
             {isSuccessCode ? (

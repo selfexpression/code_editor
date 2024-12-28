@@ -3,12 +3,24 @@
   width: 100%;
   height: 100%;
 
+  &__code-editor,
+  &__output {
+    .dashboard {
+      overflow: hidden;
+    }
+  }
+
+  &__task-description {
+    .dashboard {
+      overflow: auto;
+    }
+  }
+
   &__task-description,
   &__tabset {
     height: 100%;
     width: 50%;
-
-    overflow-y: hidden;
+    min-width: 50px;
   }
 
   &__tabset {
@@ -19,6 +31,7 @@
   &__code-editor,
   &__output {
     height: 100%;
+    min-height: 40px;
   }
 
   @media (max-width: 1023px) {

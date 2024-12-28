@@ -8,8 +8,8 @@ import CodeIcon from '../../../shared/assets/icons/code.svg';
 import { CODE_SNIPPETS } from '../../../shared/constants/codeSnippets';
 import { DEFAULT_LANGUAGE } from '../../../shared/constants/languages';
 import {
-  DASHBOARD_BORDER_WIDTH,
-  DASHBOARD_HEADER_HEIGHT,
+  DASHBOARD_BORDER_WIDTH_PX,
+  DASHBOARD_HEADER_HEIGHT_PX,
 } from '../../../shared/constants/dashboard';
 import type { TLanguages } from '../../../shared/types/languages';
 import type { IOutputResult } from '../../../shared/types/output';
@@ -18,12 +18,12 @@ import './codeEditor.scss';
 
 interface ICodeEditor {
   onResult: (result: IOutputResult) => void;
-  className?: string;
+  classNames?: string;
   height?: number;
 }
 
 export const CodeEditor: FC<ICodeEditor> = ({
-  className,
+  classNames,
   onResult,
   height,
 }) => {
@@ -61,12 +61,13 @@ export const CodeEditor: FC<ICodeEditor> = ({
     <Dashboard
       icon={<img src={CodeIcon} alt="code" />}
       title="Code"
-      className={className}
+      classNames={classNames}
       headerPanelContent={headerPanelContent}
+      hasPadding={false}
     >
       {/* От высоты редактора ыычитаются размеры блоков dashboard__header и dashboard__header-panel + border */}
       <Editor
-        height={`calc(${editorHeight} - (${DASHBOARD_HEADER_HEIGHT} + ${DASHBOARD_HEADER_HEIGHT} + ${DASHBOARD_BORDER_WIDTH}))`}
+        height={`calc(${editorHeight} - (${DASHBOARD_HEADER_HEIGHT_PX} + ${DASHBOARD_HEADER_HEIGHT_PX} + ${DASHBOARD_BORDER_WIDTH_PX}))`}
         theme="vs-dark"
         language={language}
         defaultValue={CODE_SNIPPETS[language]}
