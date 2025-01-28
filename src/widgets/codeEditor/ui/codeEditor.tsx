@@ -65,7 +65,7 @@ export const CodeEditor: FC<ICodeEditor> = ({
       headerPanelContent={headerPanelContent}
       hasPadding={false}
     >
-      {/* От высоты редактора ыычитаются размеры блоков dashboard__header и dashboard__header-panel + border */}
+      {/* От высоты редактора вычитаются размеры блоков dashboard__header и dashboard__header-panel + border */}
       <Editor
         height={`calc(${editorHeight} - (${DASHBOARD_HEADER_HEIGHT_PX} + ${DASHBOARD_HEADER_HEIGHT_PX} + ${DASHBOARD_BORDER_WIDTH_PX}))`}
         theme="vs-dark"
